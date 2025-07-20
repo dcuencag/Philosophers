@@ -1,0 +1,15 @@
+# Ignorar binarios y objetos
+philo
+*.o
+
+# Ignorar directorios
+obj/
+build/
+
+# Ignorar archivos temporales del editor
+*.swp
+*.tmp
+.DS_Store
+
+# Ignorar archivos específicos del sistema
+*.log
