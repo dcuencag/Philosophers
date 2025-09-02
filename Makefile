@@ -3,8 +3,16 @@ NAME        = philo
 SRC_DIR     = src
 OBJ_DIR     = obj
 
-SRCS        = 	main.c \
-				parse.c
+SRCS		=	main.c \
+				parse.c \
+				init.c \
+				routine.c \
+				monitor.c \
+				actions.c \
+				utils_time.c \
+				utils_sleep.c \
+				utils_log.c \
+				cleanup.c
 
 SRC_PATHS   = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -36,6 +44,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(OBJS)
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+test:
+	@bash tests.sh
 
 clean:
 	@echo "\033[1;35m===========================\033[0m"
