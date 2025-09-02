@@ -13,3 +13,6 @@ build/
 
 # Ignorar archivos específicos del sistema
 *.log
+
+# Ignorar subject
+*.pdf

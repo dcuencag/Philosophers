@@ -3,7 +3,8 @@ NAME        = philo
 SRC_DIR     = src
 OBJ_DIR     = obj
 
-SRCS        = main.c
+SRCS        = 	main.c \
+				parse.c
 
 SRC_PATHS   = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
