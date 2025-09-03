@@ -6,7 +6,7 @@
 /*   By: dancuenc <dancuenc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 14:34:07 by dancuenc          #+#    #+#             */
-/*   Updated: 2025/09/03 17:05:07 by dancuenc         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:45:40 by dancuenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < cfg.nphilo)
 	{
-		if (pthread_create(&sim.ph[i].thread, NULL, philo_routine, &sim.ph[i]) != 0)
+		if (pthread_create(&sim.ph[i].thread, NULL, philo_routine,
+				&sim.ph[i]) != 0)
 		{
 			printf("Error\n");
 			sim_set_end(&sim, 1);

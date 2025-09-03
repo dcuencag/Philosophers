@@ -20,7 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_cfg {
+typedef struct s_cfg
+{
 	int	nphilo;
 	int	t_die;
 	int	t_eat;
@@ -28,9 +29,10 @@ typedef struct s_cfg {
 	int	meals_target;
 }	t_cfg;
 
-typedef struct s_sim t_sim;
+typedef struct s_sim	t_sim;
 
-typedef struct s_philo {
+typedef struct s_philo
+{
 	int				id;
 	pthread_t		thread;
 	pthread_mutex_t	*left_fork;
@@ -42,7 +44,8 @@ typedef struct s_philo {
 	t_sim			*sim;
 }	t_philo;
 
-struct s_sim {
+struct s_sim
+{
 	long long		t0_ms;
 	volatile int	end;
 	pthread_mutex_t	m_end;

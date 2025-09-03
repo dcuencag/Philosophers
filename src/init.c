@@ -6,7 +6,7 @@
 /*   By: dancuenc <dancuenc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 12:56:35 by dancuenc          #+#    #+#             */
-/*   Updated: 2025/09/02 13:54:11 by dancuenc         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:43:35 by dancuenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	forks_init(t_sim *sim, int n)
 {
-	int i;
+	int	i;
 
 	sim->forks = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * n);
 	if (!sim->forks)
@@ -31,7 +31,7 @@ static int	forks_init(t_sim *sim, int n)
 
 static int	philos_init(t_sim *sim, t_cfg *cfg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < cfg->nphilo)
@@ -69,7 +69,6 @@ int	sim_init(t_sim *sim, t_cfg *cfg)
 		return (0);
 	if (!philos_init(sim, cfg))
 		return (0);
-	/* init last_meal */
 	t0 = now_ms(sim);
 	i = 0;
 	while (i < cfg->nphilo)
@@ -82,29 +81,32 @@ int	sim_init(t_sim *sim, t_cfg *cfg)
 	return (1);
 }
 
-void sim_destroy(t_sim *sim)
+void	sim_destroy(t_sim *sim)
 {
-    if (!sim)
-        return;
-        
-    if (sim->ph)
-    {
-        for (int i = 0; i < sim->n; i++)
-        {
-            pthread_mutex_destroy(&sim->ph[i].m_meal);
-        }
-        free(sim->ph);
-    }
-    
-    if (sim->forks)
-    {
-        for (int i = 0; i < sim->n; i++)
-        {
-            pthread_mutex_destroy(&sim->forks[i]);
-        }
-        free(sim->forks);
-    }
-    
-    pthread_mutex_destroy(&sim->m_print);
-    pthread_mutex_destroy(&sim->m_end);
+	int	i;
+
+	i = 0;
+	if (!sim)
+		return ;
+	if (sim->ph)
+	{
+		while (i < sim->n)
+		{
+			pthread_mutex_destroy(&sim->ph[i].m_meal);
+			i++;
+		}
+		free(sim->ph);
+	}
+	if (sim->forks)
+	{
+		i = 0;
+		while (i < sim->n)
+		{
+			pthread_mutex_destroy(&sim->forks[i]);
+			i++;
+		}
+		free(sim->forks);
+	}
+	pthread_mutex_destroy(&sim->m_print);
+	pthread_mutex_destroy(&sim->m_end);
 }
