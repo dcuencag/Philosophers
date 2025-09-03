@@ -45,7 +45,8 @@ $(NAME): $(OBJS)
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-test:
+.PHONY: test
+test: all
 	@bash tests.sh
 
 clean:
