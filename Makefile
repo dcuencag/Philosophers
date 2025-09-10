@@ -3,16 +3,15 @@ NAME        = philo
 SRC_DIR     = src
 OBJ_DIR     = obj
 
-SRCS		=	main.c \
-				parse.c \
-				init.c \
-				routine.c \
-				monitor.c \
-				actions.c \
-				utils_time.c \
-				utils_sleep.c \
-				utils_log.c \
-				cleanup.c
+SRCS		=	philo.c \
+				philo_actions.c \
+				philo_args.c \
+				philo_cleanup.c \
+				philo_data.c \
+				philo_monitor.c \
+				philo_simulation.c \
+				philo_threads.c \
+				philo_utils.c
 
 SRC_PATHS   = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS        = $(SRCS:%.c=$(OBJ_DIR)/%.o)
