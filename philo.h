@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avinals <avinals-@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: dancuenc <dancuenc@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/10 14:36:12 by avinals           #+#    #+#             */
-/*   Updated: 2025/09/02 15:00:44 by avinals          ###   ########.fr       */
+/*   Created: 2025/09/10 13:18:36 by dancuenc          #+#    #+#             */
+/*   Updated: 2025/09/10 13:18:37 by dancuenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PHILO_H
 # define PHILO_H
